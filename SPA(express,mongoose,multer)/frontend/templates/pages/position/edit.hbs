@@ -1,0 +1,86 @@
+<form action="{{serverHref}}" method="post" enctype="multipart/form-data" class="employee__download_form">
+	<div class="employee__images_and_names">
+		<image src="http://localhost:4000/icons/back.png" class="employee__back">
+		<article class="employee__images">
+			<img src="{{photo}}" class="employee__photo editable">
+			<img src="http://localhost:4000/icons/{{status}}.png" class="employee__status_img editable">
+		</article>
+		<input name="avatar" type="file" class="employee__download_photo hidden"/>
+		<article class="employee__names">
+			<select name="status" class="status">
+  			    <option value="vacation" class="vacation">vacation</option>
+  			    <option value="active" class="active">active</option>
+  			    <option value="ill" class="ill">ill</option>
+		    </select>
+		    <select name="sex" class="sex">
+			    <option value="Mr" class="mr">Mr</option>
+			    <option value="Ms" class="ms">Ms</option>
+		    </select>								
+            <input name="namesEng" required type="text" class="names_eng" value="{{namesEng}}" pattern="^[A-Za-z]{2,15} [A-Za-z]{2,15}$"
+			    title="(from 2 to 15 letters(first name)) (from 2 to 15 letters(last name))"/>
+            <input name="namesRus" required type="text" class="names_rus" value="{{namesRus}}" pattern="^[А-Яа-яЁё]{2,15} [А-Яа-яЁё]{2,15}$"
+                title="(from 2 to 15 letters(first name)) (from 2 to 15 letters(last name)) (Cyrillic letters)"/>
+		    <input name="patronymicRus" type="text" class="patronymicRus" value="{{patronymicRus}}" pattern="^[А-Яа-яЁё]{6,19}$"
+			    title="(from 6 to 19 letters(patronymic, if it exists)) (Cyrillic letters)"/>
+		</article>
+	</div>
+	<div>
+		<article class="employee__general_info">
+		    <h3>GENERAL INFO</h3>
+            <p><img src="http://localhost:4000/icons/department.png"><span class="department">{{department}}</span></p>
+			<p>
+                <img src="http://localhost:4000/icons/project.png">
+                <input type="text" name="project" class="project" value="{{project}}" pattern="^[A-Za-z]{2,20}( [A-Za-z]{2,20})?$"
+                    title="(from 2 to 15 letters)(optional: space and from 2 to 15 letters) (project name, if it exists)"/>
+            </p>
+            <p class="position"><img src="http://localhost:4000/icons/position.png"><span class="position">{{position}}</span></p>
+			<p>
+                <img src="http://localhost:4000/icons/lastPromotion.png">
+                <input type="date" name="lastPromotion" class="last_promotion" value="{{lastPromotion}}" min="2011-11-30" max="2021-11-30"
+                    title="last promotion date (from '2011-11-30' to '2021-11-30')"/>
+            </p>
+		</article>
+		<article class="employee__contacts">
+			<h3>CONTACTS</h3>
+			<p>
+				<img src="http://localhost:4000/icons/phoneMob.png">
+				<input name="phoneMob" required type="tel" class="phone_mob" value="{{phoneMob}}" pattern="^[+]375[(](2[59]|44|33)[)][0-9]{7}$"
+					title="+375(XX)XXXXXXX (mobile phone)"/>
+			</p>
+			<p>
+				<img src="http://localhost:4000/icons/phoneStat.png">
+                <input type="tel" name="phoneStat" class="phone_stat" value="{{phoneStat}}" pattern="^2[0-9]{2}$" title="2XX (stationary phone)"/>
+			</p>
+			<p>
+				<img src="http://localhost:4000/icons/email.png">
+                <input name="email" required type="text" class="email"
+					value="{{email}}" pattern="^[A-Za-z]{3,10}_[A-Za-z]{3,10}(-[0-9]{4})?@([A-Za-z0-9]+[-.]?[A-Za-z0-9]+)(?<=@.{2,6})[.]com$"
+                    title="(from 3 to 10 letters)'_'(from 3 to 10 letters)(optional: '-' and 4 numbers)'@'(from 2 to 20 letters or numbers, can includes '.' or '-' in any position exept first and last)'.com'"/>
+			</p>
+			<p>
+				<img src="http://localhost:4000/icons/skype.png">
+                <input name="skype" type="text" class="skype" value="{{skype}}" pattern="[A-Za-z0-9]{3,10}[_.-][A-Za-z0-9]{4,10}"
+					title="(from 3 to 10 letters)('_' or '.' or '-')(from 4 to 10 letters) (skype)"/>
+			</p>
+		</article>
+		<article class="employee__additional_info">
+			<h3>ADDITIONAL INFO</h3>
+			<p>
+				<img src="http://localhost:4000/icons/hireDate.png">
+                <input name="hireDate" required type="date" class="hire_date" value="{{hireDate}}" min="2010-06-11" max="2021-11-30"
+                    title="hire date (from '2010-06-11' to '2021-11-30')"/>
+			</p>
+			<p>
+				<img src="http://localhost:4000/icons/vacationStartDate.png">
+                <input name="vacationStartDate" type="date" class="vacation_start_date" value="{{vacationStartDate}}" min="2021-11-30" max="2022-11-30"
+					title="vacation start date (from '2021-11-30' to '2022-11-30')"/>
+			</p>
+			<p>
+				<img src="http://localhost:4000/icons/birthDate.png">
+                <input name="birthDate" required type="date" class="birth_date" value="{{birthDate}}" min="1950-01-01" max="2004-12-31"
+					title="birthday (from '1950-01-01' to '2004-12-31')"/>
+			</p>
+		</article>
+		<button type="submit" class="employee__edit button">Save changes</button>
+	</div>
+</form>

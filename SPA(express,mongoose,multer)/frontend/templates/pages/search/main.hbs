@@ -1,0 +1,26 @@
+<aside>
+    <section class="search__params">
+        <div class="search__input">
+            <input type="text" class="search__text" placeholder="T/tom B/bond / (Cyrillic)">
+            <button class="search__button button">SEARCH</button>
+        </div>
+        <fieldset>
+            <legend>TYPE OF SEARCH</legend>
+            <label class="button"><input type="radio" class="search__choice" name="search__type" value="name">Name</label>       
+            <label class="button"><input type="radio" class="search__choice" name="search__type" value="department">Department</label>
+            <label class="button"><input type="radio" class="search__choice" name="search__type" value="project">Project</label>
+        </fieldset>
+        <div class="search__all_and_active">
+            <button class="search__all button">Show all<br>employees</button>
+            <label class="search__active button" title="Click here to show only active employees">
+                <input type="checkbox" class="status__active" name="active" value="active">ACTIVE
+            </label>
+        </div>
+    </section>
+    <button class="search__reset button" title="Сlick here to reset search parameters and search result">reset<br>serach</button>
+    <div class="displayed__employee__number"></div>
+    <input type="image" src="http://localhost:4000/icons/table.png" class="search__table" title="Сlick here for a tabular display of the search result">
+    <input type="image" src="http://localhost:4000/icons/list.png" class="search__list" title="Click here for a list display of the search result">
+</aside>
+<section class="search__result"></section>  
+<figure class="hidden"><img src="http://localhost:4000/employees/nothing.png"></figure>

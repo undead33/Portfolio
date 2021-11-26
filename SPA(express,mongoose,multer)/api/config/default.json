@@ -1,0 +1,18 @@
+{
+    "routes": {
+        "user__log_in": "./routes/user/user__log_in.js",
+        "user__save_search_params": "./routes/user/user__save_search_params.js",
+        "positions_structure": "./routes/position/positions_structure.js",
+        "position__add": "./routes/position/position__add.js",
+        "position__edit": "./routes/position/position__edit.js",
+        "position__remove": "./routes/position/position__remove.js",
+        "employees_search": "./routes/employee/employees_search.js",
+        "employee__remove": "./routes/employee/employee__remove.js",
+        "employee__info": "./routes/employee/employee__info.js"
+    },
+
+    "database": {
+        "users": "../../database/users.js",
+        "positions": "../../database/positions.js"
+    }
+}

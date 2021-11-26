@@ -1,0 +1,29 @@
+<nav>
+    <img class="header__logo" src="http://localhost:4000/icons/header__logo.png">
+    <h2 class="header__product">EMPLOYEE<br>MANAGEMENT</h2>
+    {{#if existRole}}
+    <a class="header__search {{#if isSearchPage}}active{{/if}}" href="/#/search" 
+        title="Click here to go to the employee search page.">
+        Employees search
+    </a>
+    <a class="header__structure {{#if isStructurePage}}active{{/if}}" href="/#/structure" 
+        title="Click here to go to the position structure page.">
+        Positions structure
+    </a>
+    <a class="header__authorization {{#if isAuthorizationPage}}active{{/if}}">
+        {{role}}
+    </a> 
+    {{else}}
+    <div></div>
+    <div></div>
+    <div></div>
+    {{/if}}
+    <section class="action_confirmation hidden">
+        <h2 class="action_confirmation__question"></h2>
+        <p class="action_confirmation__result"></p>
+        <div class="action_confirmation__buttons flex">
+            <button class="action_confirmation__yes button">yes</button>
+            <button class="action_confirmation__no button">no</button>
+        </div>
+    </section>
+</nav> 

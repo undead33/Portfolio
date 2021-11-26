@@ -1,0 +1,13 @@
+<nav>
+    <img class="footer__logo" src="http://localhost:4000/icons/footer__logo.png">
+    <h3 class="footer__product">EMPLOYEE<br>MANAGEMENT</h3>
+    {{#if existAboutTab}}
+        <a class="footer__about {{#if isAboutPage}}active{{/if}}" href="#/about"
+            title="Click here to read information about app.">
+            About
+        </a>  
+    {{/if}}              
+    <p class="footer__copyrights">
+        &copy; All Rights Reserved, 2021
+    </p>   
+</nav>

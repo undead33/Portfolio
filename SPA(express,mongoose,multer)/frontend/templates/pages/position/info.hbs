@@ -1,0 +1,54 @@
+<form>
+	<div class="employee__images_and_names">
+        {{#if showButton}}
+	    <image src="http://localhost:4000/icons/back.png" class="employee__back" 
+            title="{{#if isNewTab}}Click here to close current window/tab{{else}}Click here to go back{{/if}}">
+        {{else}}
+	    <div></div>
+        {{/if}}
+	    <article class="employee__images">
+		    <img src="{{photo}}" class="employee__photo">
+		    <img src="http://localhost:4000/icons/{{status}}.png" class="employee__status_img">
+	    </article>
+	    <article class="employee__names">
+		    <h1 class="sex">{{sex}}.</h1>
+		    <h1 class="names_eng">{{namesEng}}</h1>
+		    <h2 class="names_rus">{{namesRus}}</h2>
+		    <h4 class="warning"></h4>
+	    </article>
+	</div>
+	<div>
+		{{#if isNotUser}}
+		<a class="employee__edit button" href="{{editPageHref}}">Edit employee</a>
+        {{/if}}
+		<article class="employee__general_info">
+		    <h3>GENERAL INFO</h3>
+		    <p><img src="http://localhost:4000/icons/department.png"><span class="department">{{department}}</span></p>
+		    <p><img src="http://localhost:4000/icons/project.png"><span class="project">{{project}}</span></p>
+		    <p class="position"><img src="http://localhost:4000/icons/position.png"><span class="position">{{position}}</span></p>
+		    <p>
+			    <img src="http://localhost:4000/icons/lastPromotion.png">
+			    <span class="last_promotion">{{lastPromotion}}</span>
+		    </p>
+		</article>
+		<article class="employee__contacts">
+			<h3>CONTACTS</h3>
+			<p><img src="http://localhost:4000/icons/phoneMob.png"><span class="phone_mob">{{phoneMob}}</span></p>
+			<p>
+				<img src="http://localhost:4000/icons/phoneStat.png">
+				<span class="phone_stat">{{phoneStat}}</span>
+			</p>
+			<p><img src="http://localhost:4000/icons/email.png"><span class="email">{{email}}</span></p>
+			<p><img src="http://localhost:4000/icons/skype.png"><span class="skype">{{skype}}</span></p>
+		</article>
+		<article class="employee__additional_info">
+			<h3>ADDITIONAL INFO</h3>
+			<p><img src="http://localhost:4000/icons/hireDate.png"><span class="hire_date">{{hireDate}}</span></p>
+			<p>
+				<img src="http://localhost:4000/icons/vacationStartDate.png">
+				<span class="vacation_start_date">{{vacationStartDate}}</span>
+			</p>
+			<p><img src="http://localhost:4000/icons/birthDate.png"><span class="birth_date">{{birthDate}}</span></p>
+		</article>
+	</div>
+</form>			
