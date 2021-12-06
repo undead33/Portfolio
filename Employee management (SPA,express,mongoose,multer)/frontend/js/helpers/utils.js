@@ -37,7 +37,7 @@ export const confirmAction = question => new Promise(resolve => {
         setTimeout(() => {
             actionConfirmationWindow.classList.remove('flex');
             actionConfirmationWindow.classList.add('hidden');
-            addPositionBtn.classList.remove('hidden');
+            if (addPositionBtn) addPositionBtn.classList.remove('hidden');
         }, 2000);
 
         resolve(true);
@@ -46,7 +46,7 @@ export const confirmAction = question => new Promise(resolve => {
     no.addEventListener('click', () => {
         actionConfirmationWindow.classList.remove('flex');
         actionConfirmationWindow.classList.add('hidden');
-        addPositionBtn.classList.remove('hidden');
+        if (addPositionBtn) addPositionBtn.classList.remove('hidden');
 
         resolve(false);
     });

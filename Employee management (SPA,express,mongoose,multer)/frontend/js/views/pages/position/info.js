@@ -4,7 +4,6 @@ import {capitalizeFirstLetter} from '../../../helpers/utils';
 import Employees from '../../../models/Employees';
 
 import InfoTemplate from '../../../../templates/pages/position/info';
-import InfoErrorTemplate from '../../../../templates/pages/position/info_error';
 
 import Error404 from '../error404';
 
@@ -55,7 +54,9 @@ class Info extends Component {
 					birthDate: employee.birthDate
 				});
 			} else if (employee.message) {
-				html = 	InfoErrorTemplate();
+				html = 	`<h1 class="error_message">
+							Sorry, the server has encountered an error.<br>Please click on the 'go back' button and click on employee again.
+						</h1>`;
 			} else {
 				html = new Error404().render();
 			}

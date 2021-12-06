@@ -5,8 +5,6 @@ import {redirectTo, confirmAction, capitalizeFirstLetter} from '../../helpers/ut
 import Positions from '../../models/Positions';
 import Employees from '../../models/Employees';
 
-import ErrorTemplate from '../../../templates/pages/structure/error';
-import PositionCreateTemplate from '../../../templates/pages/structure/position__create';
 import PositionAddTemplate from '../../../templates/pages/structure/position__add';
 import PositionVacantTemplate from '../../../templates/pages/structure/position__vacant';
 
@@ -35,7 +33,13 @@ class Structure extends Component {
                     employeesFED = employees.filter(employee => employee.department === 'fe' && employee.position.startsWith('junior'));
 
 				html = `
-                    ${PositionCreateTemplate({isAdmin: (localStorage.getItem('role') === 'admin'), isNotUser: !(localStorage.getItem('role') === 'user')})}
+                    ${(localStorage.getItem('role') === 'admin') ? `
+                    <section class="position__creation">
+                        <button class="position__add">
+                            <span>Add</span><img src="http://localhost:4000/icons/position.png"><br><span>position</span>
+                        </button>
+                        <div class="position__create hidden"></div>
+                    </section>` : ''}
 					<section class="employee__structure">
                         <article class="qa">
                             <span><h1>quality assurance department</h1></span>
@@ -55,7 +59,7 @@ class Structure extends Component {
 					</section>
 				`;
 			} else if (employees.message) {
-				html = 	ErrorTemplate();
+				html = 	'<h1 class="error_message">Sorry, the server has encountered an error.<br>Please reload the page.</h1>';
             } else {
 				html = new Error404().render();
 			}
@@ -94,10 +98,7 @@ class Structure extends Component {
     }
 
     setActions() {
-        const addPositionBtn = document.getElementsByClassName('position__add')[0],
-            positionCreation = document.getElementsByClassName('position__creation')[0],
-            addPositionArea = document.getElementsByClassName('position__create')[0],
-            confirmationResultMessage = document.getElementsByClassName('action_confirmation__result')[0],
+        const confirmationResultMessage = document.getElementsByClassName('action_confirmation__result')[0],
             employeeStructure = document.getElementsByClassName('employee__structure')[0];
 
         employeeStructure.addEventListener('click', event => {
@@ -160,8 +161,11 @@ class Structure extends Component {
             }
         });
 
-        if (addPositionBtn) {
-            positionCreation.addEventListener('click', event => {
+        if ((localStorage.getItem('role') === 'admin')) {
+            const addPositionBtn = document.getElementsByClassName('position__add')[0],
+                addPositionArea = document.getElementsByClassName('position__create')[0];
+
+            document.getElementsByClassName('position__creation')[0].addEventListener('click', event => {
                 switch (true) {
                     case (event.target.parentNode.tagName === 'BUTTON' && event.target.parentNode.classList.contains('position__add')):
                         addPositionBtn.classList.add('hidden');
