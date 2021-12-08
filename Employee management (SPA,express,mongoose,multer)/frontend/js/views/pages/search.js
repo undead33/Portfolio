@@ -43,10 +43,7 @@ class Search extends Component {
         searchBtn.addEventListener('click', () => this.searchEmployees(searchText, resultArea, table, list, active));
         searchTypes.addEventListener('change', () => this.chooseSearchType(event, searchText));
         searchTypes.addEventListener('click', () => this.focusSearchArea(searchText, searchBtn));
-        all.addEventListener('click', () => {
-            sessionStorage.setItem('searchType', 'all');
-            this.searchEmployees(searchText, resultArea, table, list, active);
-        });
+        all.addEventListener('click', () => sessionStorage.setItem('searchType', 'all') && this.searchEmployees(searchText, resultArea, table, list, active));
         active.addEventListener('change', () => this.chooseActiveOrAllEmployee(resultArea, active));
         resetBtn.addEventListener('click', () => this.removeSearchParams(searchText, resetBtn, searchChoices, resultArea, table, list, active, searchBtn));
         table.addEventListener('click', () => this.changeToTableWiev(resultArea, table, list, active));
