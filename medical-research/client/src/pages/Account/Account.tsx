@@ -6,7 +6,6 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import SmallMenu from 'pages/Account/components/SmallMenu';
 import EditUserInfoForm from 'pages/Account/components/EditUserInfoForm';
-import { useUserActions } from 'hooks/useActions';
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import { splitNameByUnderscore, splitNameByCamelCase } from 'tools/transformStrings';
 

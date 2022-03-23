@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useTypedSelector } from "hooks/useTypedSelector";
 import { tableHeadCells } from 'pages/Clinics/components/ClinicsTable';
 
@@ -41,12 +41,8 @@ const CharacteristicInfo = styled(Box)({
 });
 
 const Clinic: React.FC = () => {
-    const { clinics, error, loading } = useTypedSelector(state => state.clinics);
-    const { email } = useTypedSelector(state => state.user);
-    console.log(clinics, error, loading)//////////////////
-    const navigate = useNavigate();
+    const { clinics } = useTypedSelector(state => state.clinics);
     const pageId = useLocation().pathname.split('/')[2];
-    console.log(clinics.find((clinic) => clinic.id === pageId)); //////////////////
     let clinicData = clinics.find((clinic) => clinic.id === pageId);
     const { name, city: { name: cityName }, address, phoneNumber } = clinicData;
 

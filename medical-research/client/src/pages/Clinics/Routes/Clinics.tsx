@@ -17,7 +17,7 @@ const ClinicsContainer = styled(Box)({
 
 const Clinics: React.FC = () => {
 	const { fetchClinics } = useClinicsActions();
-	const { userName, email } = useTypedSelector(state => state.user);
+	const { email } = useTypedSelector(state => state.user);
 	let { clinics, error, loading } = useTypedSelector(state => state.clinics);
 
 	let ui = (
@@ -32,7 +32,7 @@ const Clinics: React.FC = () => {
 	React.useMemo(() => {
 		fetchClinics();
 	}, []);
-	console.log(clinics, error, loading)//////////////////
+
 	if (loading) {
 		ui = <><Loader /></>;
 	} else if (error) {

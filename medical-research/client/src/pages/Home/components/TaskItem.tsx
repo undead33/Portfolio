@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { useNavigate } from 'react-router-dom';
 import TableRow, { tableRowClasses } from '@mui/material/TableRow';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import {
-    FlexForm, Label, TextField, FormControlLabel, Checkbox, ErrorMessage, Button,
-} from 'components/base/FormElements';
+import { FormControlLabel, Checkbox, } from 'components/base/FormElements';
 import { DeleteBtn } from 'pages/Medicines/components/MedicineItem';
 import { useTasksActions } from 'hooks/useActions';
 
@@ -45,9 +42,6 @@ const StyledTableCell = styled(TableCell)({
     [`&.${tableCellClasses.body}:not(:last-child)`]: {
         borderRight: 'solid 2px var(--colors-ui-base)',
     },
-    // [`&.${tableCellClasses.body}:nth-of-type(1)`]: {
-    //     cursor: 'pointer',
-    // },
 });
 
 interface UserItemProps {
@@ -60,9 +54,7 @@ interface UserItemProps {
 const UserItem: React.FC<UserItemProps> = ({
     id, className, title, completed,
 }) => {
-    const navigate = useNavigate();
     const { deleteTask, editTask } = useTasksActions();
-    // const redirectToUser = () => { navigate(`${id}`); };
     const completeTaskAction = () => { editTask({ id, title, completed: !completed, }); };
     const deleteTaskAction = () => { deleteTask(id); };
 
@@ -70,7 +62,6 @@ const UserItem: React.FC<UserItemProps> = ({
         <>
             <StyledTableBodyRow className={className}>
                 <StyledTableCell>
-                    {/* <StyledTableCell onDoubleClick={redirectToUser}> */}
                     <div>{title}</div>
                 </StyledTableCell>
 

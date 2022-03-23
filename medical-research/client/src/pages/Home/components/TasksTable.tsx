@@ -7,7 +7,7 @@ import Table from '@mui/material/Table';
 import TableHead from '@mui/material/TableHead';
 import TableBody from '@mui/material/TableBody';
 import TableFooter from '@mui/material/TableFooter';
-import TableRow, { tableRowClasses } from '@mui/material/TableRow';
+import TableRow from '@mui/material/TableRow';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
@@ -17,7 +17,6 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import TaskItem from 'pages/Home/components/TaskItem';
-import { useTypedSelector } from 'hooks/useTypedSelector';
 import { TaskObj } from 'types/tasks';
 
 interface TablePaginationActionsProps {

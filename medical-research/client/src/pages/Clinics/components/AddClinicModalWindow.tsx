@@ -12,7 +12,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { NewClinicValues, NewClinicObj } from "types/clinics";
 import { useClinicsActions } from "hooks/useActions";
-import { clinicValidation, phoneNumberValidation } from 'tools/formValidation';
+import { clinicValidation } from 'tools/formValidation';
 
 const FormContainer = styled(Box)({
     margin: 0,
