@@ -24,8 +24,6 @@ app.get( '/tasks', ( req, res ) => setTimeout( () => res.send( tasks ), 1000 ) )
 
 app.post( '/tasks/add', ( req, res ) =>
 {
-	//const task = { title: req.body.title, id: nanoid(), completed: false };
-	console.log( req.body );/////////////////////
 	tasks.push( req.body );
 
 	return res.sendStatus( 200 );

@@ -18,6 +18,7 @@ import { v4 as uuidv4 } from 'uuid';
 const FormContainer = styled(Box)({
     margin: 0,
     width: '100%',
+    display: 'grid',
 });
 
 export const TaskForm = styledComponents.form({

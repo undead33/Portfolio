@@ -13,9 +13,15 @@ const Tasks: React.FC = () => {
     let { tasks, error, loading } = useTypedSelector(state => state.tasks);
     let ui = (
         <HomePageTitle>
-            <HomePageTitle>To do list</HomePageTitle>
-            <TaskStatus />
-            <TasksTable tasks={tasks} />
+            {tasks.length ? (
+                <>
+                    <HomePageTitle>Tasks list</HomePageTitle>
+                    <TaskStatus />
+                    <TasksTable tasks={tasks} />
+                </>
+            ) : (
+                <HomePageTitle>Tasks list is empty</HomePageTitle>
+            )}
             <AddTaskModalWindow />
         </HomePageTitle>
     );

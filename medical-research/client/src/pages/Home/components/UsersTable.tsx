@@ -158,7 +158,6 @@ const StyledTableCell = styled(TableCell)({
 });
 
 function createData(obj: UserObj) {
-    console.log(obj)////////////
     let { userName, email, phoneNumber, } = obj;
 
     return { userName, email, phoneNumber, };
