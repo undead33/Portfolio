@@ -1,0 +1,127 @@
+@import 'styles/normalize.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* Typography */
+  --family: 'Nunito Sans', sans-serif;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fw-light: 300;
+  --fw-normal: 600;
+  --fw-bold: 800;
+
+  /* Other */
+  --radii: 0.5rem;
+}
+
+body[data-theme='light'] {
+  --colors-text: hsl(200, 15%, 8%);
+  --colors-text-secondary: hsl(200, 72%, 32%);
+  --colors-bg: hsl(0, 0%, 98%);
+  --colors-bg-secondary: hsl(142, 88%, 68%);
+  --colors-bg-btns: hsl(117, 44%, 47%);
+  --colors-ui-base: hsl(198, 57%, 40%);
+  --colors-ui-secondary: hsl(0, 0%, 98%);
+  --colors-ui-border: hsl(200, 35%, 61%);
+
+  --shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+body[data-theme='dark'] {
+  --colors-text: hsl(0, 0%, 100%);
+  --colors-text-secondary: hsl(200, 35%, 61%);
+  --colors-bg: hsl(207, 26%, 17%);
+  --colors-bg-secondary: hsl(209, 71%, 50%);
+  --colors-ui-base: hsl(125, 54%, 23%);
+  --colors-ui-secondary: hsl(0, 0%, 98%);
+  --colors-ui-border: hsl(202, 5%, 56%);
+
+  --shadow: rgba(245, 245, 245, 0.2) 0 0 8px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--family);
+  color: var(--colors-text);
+  font-weight: var(--fw-light);
+  background-color: var(--colors-bg);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a.active {
+  background: var(--colors-ui-base);
+  color: var(--colors-ui-secondary);
+}
+
+.colored {
+  background: var(--colors-bg-secondary);
+}
+
+.white {
+  background: var(--colors-bg);
+}
+
+#root {
+  padding: 0 24px;
+  margin: 0;
+  min-width: 375px;
+  height: 100%;
+  width: 100%;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 120px 1fr 115px;
+}
+
+header {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: space-around;
+}
+
+main {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  max-width: 1024px;
+  width: 100%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
+/***********************   MEDIA REQUEST  *******************/
+@media screen and (max-width: 599px) {
+  #root {}
+}

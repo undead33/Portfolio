@@ -1,0 +1,48 @@
+version: '3.4'
+
+services:
+  mongodb:
+    container_name: mongo
+    image: mongo
+    restart: always
+    volumes:
+      - ${WEBAPP_STORAGE_HOME}/site:/data/db
+    ports:
+      - "27017:27017"
+      - "27018:27018"
+
+  mssql:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+      SA_PASSWORD: "somepassword.01"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "3306:3306"
+
+  medicinemanaging.api:
+    image: irongoshan/medicinemanagingapi
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:443"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    ports:
+      - "10000:80"
+      - "10001:443"
+    depends_on:
+      - mongodb
+
+  usermanaging.api:
+    image: irongoshan/usermanagingapi
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:443"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    ports:
+      - "9000:80"
+      - "9001:443"
+    depends_on:
+      - mssql
