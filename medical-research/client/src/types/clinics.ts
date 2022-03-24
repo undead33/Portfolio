@@ -23,6 +23,7 @@ export interface NewClinicValues {
 };
 
 export interface NewClinicObj {
+    id: string,
     name: string,
     city: { id: number, name: string },
     address: string,

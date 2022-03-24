@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import TableRow, { tableRowClasses } from '@mui/material/TableRow';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { useMedicinesActions } from 'hooks/useActions';
@@ -80,9 +80,13 @@ const MedicineItem: React.FC<MedicineItemProps> = ({
 }) => {
     const { email } = useTypedSelector(state => state.user);
     const { deleteMedicine } = useMedicinesActions();
-    const navigate = useNavigate();
-    const redirectToMedicine = () => { navigate(`/medicines/${id}`); };
-    const redirectToMedicineEdit = () => { navigate(`/medicines/${id}/edit`); };
+    //const navigate = useNavigate();
+    const redirectToMedicine = () => {
+        // navigate(`/medicines/${id}`); 
+    };
+    const redirectToMedicineEdit = () => {
+        // navigate(`/medicines/${id}/edit`); 
+    };
     const deleteMedicineAction = () => { deleteMedicine(id); };
 
     return (

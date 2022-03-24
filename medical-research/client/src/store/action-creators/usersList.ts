@@ -7,6 +7,7 @@ export const fetchUsers = () =>
     async (dispatch: Dispatch<UsersListActionS>) => {
         dispatch({ type: UsersListActionTypes.FETCH_USERSLIST });
         let token: string | null = localStorage.getItem('token');
+
         try {
             const response = await getAllUsers(token);
 

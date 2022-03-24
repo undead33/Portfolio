@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import TableRow, { tableRowClasses } from '@mui/material/TableRow';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { splitNameByUnderscore, splitNameByCamelCase } from 'tools/transformStrings';
@@ -57,8 +57,10 @@ interface UserItemProps {
 const UserItem: React.FC<UserItemProps> = ({
     id, className, userName, email, phoneNumber,
 }) => {
-    const navigate = useNavigate();
-    const redirectToUser = () => { navigate(`${id}`); };
+    //const navigate = useNavigate();
+    const redirectToUser = () => {
+        // navigate(`${id}`); 
+    };
 
     return (
         <>

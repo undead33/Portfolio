@@ -158,7 +158,14 @@ const StyledTableCell = styled(TableCell)({
 });
 
 function createData(obj: ClinicObj) {
-    let { id, name: clinicName, city: { name: cityName }, address, phoneNumber, phone, } = obj;
+    const {
+        id,
+        name: clinicName,
+        city: { name: cityName },
+        address,
+        phoneNumber,
+        phone,
+    } = obj;
 
     return { id, clinicName, cityName, address, phoneNumber, phone, };
 }

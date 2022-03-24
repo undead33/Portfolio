@@ -10,7 +10,7 @@ import TaskStatus from 'pages/Home/components/TaskStatus';
 
 const Tasks: React.FC = () => {
     const { fetchTasks } = useTasksActions();
-    let { tasks, error, loading } = useTypedSelector(state => state.tasks);
+    const { tasks, error, loading } = useTypedSelector(state => state.tasks);
     let ui = (
         <HomePageTitle>
             {tasks.length ? (

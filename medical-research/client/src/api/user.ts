@@ -6,28 +6,27 @@ const headersObj = {
     'Content-Type': 'application/json',
 };
 
-export const setUpInterceptors = (logout: () => void) => {
-    axios.interceptors.request.use(
-        (config) => {
-            const isAuthorizationRequest =
-                config.url && (new URL(config.url)).pathname.includes('Authorization');
-            const tokenIsNotExpired =
-                Number(localStorage.getItem('tokenExpirationTime')) + 1090000 > Date.now();
+// export const setUpInterceptors = (logout: () => void) => {
+//     axios.interceptors.request.use(
+//         (config) => {
+//             const isAuthorizationRequest =
+//                 config.url && (new URL(config.url)).pathname.includes('Authorization');
+//             const tokenIsNotExpired =
+//                 Number(localStorage.getItem('tokenExpirationTime')) > Date.now();
 
-            if (isAuthorizationRequest || tokenIsNotExpired) {
-                return config;
-            } else {
-                logout();
+//             if (isAuthorizationRequest || tokenIsNotExpired) {
+//                 return config;
+//             } else {
+//                 logout();
 
-                localStorage.setItem('tokenExpirationTime', 'expired');
-                localStorage.removeItem('token');
-                localStorage.removeItem('user');
-            }
-        },
-        (error) => Promise.reject(error)
-    );
-
-}
+//                 localStorage.setItem('tokenExpirationTime', 'expired');
+//                 localStorage.removeItem('token');
+//                 localStorage.removeItem('user');
+//             }
+//         },
+//         (error) => Promise.reject(error)
+//     );
+// }
 
 
 export const authorizationReq = (userData: any, requestType: string) =>

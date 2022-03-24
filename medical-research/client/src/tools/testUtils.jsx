@@ -4,17 +4,24 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import userReducer from 'store/reducers/userReducer';
 import medicinesReducer from 'store/reducers/medicinesReducer';
+import clinicsReducer from 'store/reducers/clinicsReducer';
 import usersListReducer from 'store/reducers/usersListReducer';
+import tasksReducer from 'store/reducers/tasksReducer';
 
 function render(
   ui,
   {
     preloadedState,
-    store = configureStore({ reducer: { 
-      user: userReducer,
-      medicines: medicinesReducer,
-      usersList: usersListReducer,
-    }, preloadedState }),
+    store = configureStore({ 
+      reducer: { 
+        user: userReducer,
+        medicines: medicinesReducer,
+        clinics: clinicsReducer,
+        usersList: usersListReducer,
+        tasks: tasksReducer,
+      }, 
+      preloadedState, 
+    }),
     ...renderOptions
   } = {}
 ) {

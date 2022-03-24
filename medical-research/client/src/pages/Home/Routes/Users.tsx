@@ -7,7 +7,7 @@ import { HomePageContainer, HomePageTitle } from 'pages/Home/components/Base';
 
 const Users: React.FC = () => {
     const { fetchUsers } = useUsersListActions();
-    let { usersList } = useTypedSelector(state => state.usersList);
+    const { usersList } = useTypedSelector(state => state.usersList);
 
     React.useEffect(() => {
         fetchUsers();

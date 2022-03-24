@@ -13,7 +13,7 @@ import Account from 'pages/Account/Account';
 import { userLogout } from 'store/action-creators/user';
 import { setUpInterceptors } from 'api/user';
 
-setUpInterceptors(() => userLogout()(store.dispatch));
+//setUpInterceptors(() => userLogout()(store.dispatch));
 
 const App: React.FC = () => {
 	return (

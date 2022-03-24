@@ -58,8 +58,10 @@ interface ClinicItemProps {
 const ClinicItem: React.FC<ClinicItemProps> = ({
     id, className, clinicName, cityName, address, phoneNumber, phone
 }) => {
-    const navigate = useNavigate();
-    const redirectToClinic = () => { navigate(`/clinics/${id}`); };
+    //const navigate = useNavigate();
+    const redirectToClinic = () => {
+        // navigate(`/clinics/${id}`); 
+    };
 
     return (
         <>

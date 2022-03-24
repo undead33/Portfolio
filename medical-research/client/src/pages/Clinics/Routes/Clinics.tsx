@@ -17,8 +17,8 @@ const ClinicsContainer = styled(Box)({
 
 const Clinics: React.FC = () => {
 	const { fetchClinics } = useClinicsActions();
+	const { clinics, error, loading } = useTypedSelector(state => state.clinics);
 	const { email } = useTypedSelector(state => state.user);
-	let { clinics, error, loading } = useTypedSelector(state => state.clinics);
 
 	let ui = (
 		<ClinicsContainer>

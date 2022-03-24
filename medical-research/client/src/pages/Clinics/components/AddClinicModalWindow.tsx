@@ -13,6 +13,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { NewClinicValues, NewClinicObj } from "types/clinics";
 import { useClinicsActions } from "hooks/useActions";
 import { clinicValidation } from 'tools/formValidation';
+import { v4 as uuidv4 } from 'uuid';
 
 const FormContainer = styled(Box)({
     margin: 0,
@@ -70,6 +71,7 @@ export const AddClinicModalWindow = () => {
     function sendAddClinicForm(values: NewClinicValues) {
         const { name, city, address, phone } = values;
         const newClinic: NewClinicObj = {
+            id: uuidv4(),
             name,
             city: {
                 id: Math.floor(Date.now() / 1000000),
@@ -78,7 +80,7 @@ export const AddClinicModalWindow = () => {
             address,
             phone,
         }
-        console.log(newClinic)////////////////////////
+
         addClinic(newClinic);
         formik.resetForm();
         handleClickClose();

@@ -2,55 +2,45 @@ import { render, fireEvent, screen } from 'tools/testUtils';
 import { waitFor, cleanup } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom';
-import { AddMedicineModalWindow } from 'pages/Medicines/components/AddMedicineModalWindow';
+import { AddClinicModalWindow } from 'pages/Clinics/components/AddClinicModalWindow';
 
 type GetByRoleParams = [string, { name: RegExp }];
 
 describe('add medicine modal window testing', () => {
-    beforeEach(() => render(<AddMedicineModalWindow />));
+    beforeEach(() => render(<AddClinicModalWindow />));
 
     afterEach(cleanup);
 
-    const addMedicineBtn: GetByRoleParams = ['button', { name: /add medicine/ }];
-    const addMedicineModal: GetByRoleParams = ['dialog', { name: /add medicine/ }];
-    const chooseDateBtn: GetByRoleParams = ['textbox', { name: /Choose date/ }];
-    const previousMonthBtn: GetByRoleParams = ['button', { name: /Previous month/ }];
+    const addClinicBtn: GetByRoleParams = ['button', { name: /add clinic/ }];
+    const addClinicModal: GetByRoleParams = ['dialog', { name: /add clinic/ }];
     const addBtn: GetByRoleParams = ['button', { name: /add/ }];
     const cancelBtn: GetByRoleParams = ['button', { name: /cancel/ }];
 
     it('initial rendering', () => {
-        expect(screen.getByRole(...addMedicineBtn)).toBeInTheDocument();
-        expect(screen.queryByText(/new medicine/)).not.toBeInTheDocument();
+        expect(screen.getByRole(...addClinicBtn)).toBeInTheDocument();
+        expect(screen.queryByText(/new clinic/)).not.toBeInTheDocument();
     });
 
-    it('click add medicine button', () => {
-        fireEvent.click(screen.getByRole(...addMedicineBtn));
+    it('click add clinic button', () => {
+        fireEvent.click(screen.getByRole(...addClinicBtn));
 
-        expect(screen.queryByRole(...addMedicineBtn)).not.toBeInTheDocument();
+        expect(screen.queryByRole(...addClinicBtn)).not.toBeInTheDocument();
 
-        expect(screen.getByText(/new medicine/)).toBeInTheDocument();
+        expect(screen.getByText(/new clinic/)).toBeInTheDocument();
 
         expect(screen.getByRole(...addBtn)).toBeInTheDocument();
 
         expect(screen.getByRole(...cancelBtn)).toBeInTheDocument();
     });
 
-    it('click choose date button', () => {
-        fireEvent.click(screen.getByRole(...addMedicineBtn));
-
-        fireEvent.click(screen.getByRole(...chooseDateBtn));
-
-        expect(screen.getByRole(...previousMonthBtn)).toBeInTheDocument();
-    });
-
     it('click cancel button', async () => {
-        fireEvent.click(screen.getByRole(...addMedicineBtn));
+        fireEvent.click(screen.getByRole(...addClinicBtn));
 
         fireEvent.click(screen.getByRole(...cancelBtn));
 
-        await waitFor(() => screen.getByRole(...addMedicineBtn), { timeout: 200 });
+        await waitFor(() => screen.getByRole(...addClinicBtn), { timeout: 200 });
 
-        expect(screen.getByRole(...addMedicineBtn)).toBeInTheDocument();
+        expect(screen.getByRole(...addClinicBtn)).toBeInTheDocument();
     });
 
     // it('click add button', async () => {
