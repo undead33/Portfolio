@@ -2,11 +2,11 @@ import React from 'react';
 import Loader from 'components/base/Loader';
 import styled from 'styled-components';
 import Box from '@mui/material/Box';
-import LogInForm from 'pages/Login/components/LoginForm';
+import LoginForm from 'pages/Login/components/LoginForm';
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import { useUsersListActions, useUserActions } from 'hooks/useActions';
 
-export const LogInPageArea = styled(Box)({
+export const LoginPageArea = styled(Box)({
 	height: 640,
 	width: '100%',
 	justifySelf: 'center',
@@ -15,14 +15,14 @@ export const LogInPageArea = styled(Box)({
 	gap: '5%',
 });
 
-export const LogInPageImage = styled.img({
+export const LoginPageImage = styled.img({
 	objectFit: 'cover',
 	width: '100%',
 	height: '100%',
 	gridArea: 'image',
 });
 
-const LogIn: React.FC = () => {
+const Login: React.FC = () => {
 	const { loading } = useTypedSelector(state => state.user);
 	const { userLogout } = useUserActions();
 	const { clearUsersList } = useUsersListActions();
@@ -41,17 +41,17 @@ const LogIn: React.FC = () => {
 	}
 
 	return (
-		<LogInPageArea
+		<LoginPageArea
 			gridTemplateColumns={['1fr', '1fr 1fr']}
 			gridTemplateAreas={['"form"', '"image form"']}
 		>
 			<Box display={['none', 'flex']}>
-				<LogInPageImage src={require('../../images/loginAside.jpg')} />
+				<LoginPageImage src={require('../../images/loginAside.jpg')} />
 			</Box>
 
-			<LogInForm />
-		</LogInPageArea>
+			<LoginForm />
+		</LoginPageArea>
 	);
 };
 
-export default LogIn;
+export default Login;

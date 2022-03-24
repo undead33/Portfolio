@@ -7,6 +7,7 @@ import { FiTwitter, FiFacebook } from 'react-icons/fi';
 import ResponsiveAppBar from 'components/ResponsiveAppBar';
 import { useThemeActions } from 'hooks/useActions';
 import { useTypedSelector } from 'hooks/useTypedSelector';
+import { HomePageContainer, HomePageTitle } from 'pages/Home/components/Base';
 
 const NavbarContainer = styled(Box)({
 	marginBottom: 14,
@@ -57,7 +58,7 @@ const Layout: React.FC = () => {
 			changeThemeToLight();
 		}
 	}
-	//const pageName = document.location.pathname
+
 	React.useEffect(() => {
 		document.body.setAttribute('data-theme', color);
 	}, [color]);
@@ -76,7 +77,15 @@ const Layout: React.FC = () => {
 						<NavLinkUI to='clinics'>Clinics</NavLinkUI>
 					</NavbarContainer>
 				) : (
-					<NavbarContainer />
+					<>
+						<NavbarContainer />
+						{window.location.pathname === '/' ?
+							<HomePageContainer>
+								<HomePageTitle>
+									For using this app you need to log in or sign up
+								</HomePageTitle>
+							</HomePageContainer> : null}
+					</>
 				)}
 
 				<Outlet />

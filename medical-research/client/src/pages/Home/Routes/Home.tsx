@@ -21,7 +21,7 @@ const Home: React.FC = () => {
 		} else if (email !== 'admin@gmail.com' && userName) {
 			navigate('tasks');
 		}
-	}, []);
+	}, [email, userName]);
 
 	if (localStorage.getItem('tokenExpirationTime') === 'expired') {
 		setTimeout(() => localStorage.removeItem('tokenExpirationTime'), 1000);

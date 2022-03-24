@@ -65,7 +65,7 @@ const ResponsiveAppBar: React.FC = () => {
 				<CurrentUserArea>
 					<BsPersonCircle size={40} color={'var(--colors-ui-base)'} />
 
-					<LoginPageLink to='login'>Log In</LoginPageLink>
+					<LoginPageLink to='login'>Log in</LoginPageLink>
 				</CurrentUserArea>
 			)}
 		</Headerbar>
